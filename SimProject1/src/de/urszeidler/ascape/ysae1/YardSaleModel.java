@@ -25,9 +25,10 @@ import org.ascape.view.vis.Overhead2DView;
  * (Dated: October 8, 2018)
  */
 public class YardSaleModel extends Scape {
-	protected int nPlayers = 500;
-	protected int latticeHeight = 30;
-	protected int latticeWidth = 30;
+	private static final long serialVersionUID = 6742573957490905687L;
+	protected int nPlayers = 600;
+	protected int latticeHeight = 35;
+	protected int latticeWidth = 35;
 	Scape lattice;
 	Scape players;
 	private Overhead2DView overheadView;

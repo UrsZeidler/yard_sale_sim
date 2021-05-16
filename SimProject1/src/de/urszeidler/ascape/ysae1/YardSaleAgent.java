@@ -17,10 +17,8 @@ import org.ascape.model.CellOccupant;
  * (Dated: October 8, 2018)
  */
 public class YardSaleAgent extends CellOccupant {
-
-	private double wealth = 100.0;
-	protected Color myColor;
-	private double factor = 0.1;
+	private static final long serialVersionUID = 8782427748882471750L;
+	private double wealth = 200.0;
 	private double deltaT = 1.0;
 	private double gamma = 0.1;
 	
@@ -68,11 +66,5 @@ public class YardSaleAgent extends CellOccupant {
 	}
 	public void setWealth(double wealth) {
 		this.wealth = wealth;
-	}
-	public double getFactor() {
-		return factor;
-	}
-	public void setFactor(double factor) {
-		this.factor = factor;
 	}
 }
