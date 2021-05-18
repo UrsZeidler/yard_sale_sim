@@ -34,6 +34,8 @@
         name="org.ascape.ide.feature.group"/>
     <requirement
         name="org.ascape.ui.swing.feature.group"/>
+    <requirement
+        name="org.eclipse.pde.feature.group"/>
     <repository
         url="http://ascape.sourceforge.net/eclipse"/>
   </setupTask>
@@ -48,7 +50,8 @@
   <setupTask
       xsi:type="projects:ProjectsImportTask">
     <sourceLocator
-        rootFolder="${installation.location/trader-statistic}"/>
+        rootFolder="${installation.location/yard_sale_sim}"
+        locateNestedProjects="true"/>
   </setupTask>
   <stream name="master"
       label="Master"/>
