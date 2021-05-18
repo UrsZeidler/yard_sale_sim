@@ -61,8 +61,8 @@
       xsi:type="git:GitCloneTask"
       id="git.clone.TraderStatistic"
       location="${installation.location/trader-statistic}"
-      remoteURI="ssh://git@urszeidler.de:22222/home/git/repos/trader-statistic.git"
-      pushURI="ssh://git@urszeidler.de:22222/home/git/repos/trader-statistic.git">
+      remoteURI="ssh://git@urszeidler.de:22222/home/git/repos/yard_sale_sim.git"
+      pushURI="ssh://git@urszeidler.de:22222/home/git/repos/yard_sale_sim.git">
     <description>${scope.project.label}</description>
   </setupTask>
   <setupTask
