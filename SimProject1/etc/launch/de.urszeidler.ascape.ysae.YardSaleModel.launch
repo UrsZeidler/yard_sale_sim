@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/SimProject1"/>
+        <listEntry value="/YardSaleSim"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>
@@ -13,5 +13,5 @@
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.ascape.runtime.swing.SwingRunner"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="SimProject1"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="de.urszeidler.ascape.ysae.YardSaleModel"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SimProject1"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="YardSaleSim"/>
 </launchConfiguration>
