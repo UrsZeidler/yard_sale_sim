@@ -62,6 +62,8 @@ public abstract class AbstractYardSaleModel extends Scape {
 	}
 
 	protected int nAgents = 500;
+	protected double startWealth = 100;
+
 	protected int latticeHeight = 35;
 	protected int latticeWidth = 35;
 	protected Scape lattice;
@@ -142,6 +144,14 @@ public abstract class AbstractYardSaleModel extends Scape {
 
 	public void setLatticeWidth(int latticeWidth) {
 		this.latticeWidth = latticeWidth;
+	}
+
+	public double getStartWealth() {
+		return startWealth;
+	}
+
+	public void setStartWealth(double startWealth) {
+		this.startWealth = startWealth;
 	}
 
 }

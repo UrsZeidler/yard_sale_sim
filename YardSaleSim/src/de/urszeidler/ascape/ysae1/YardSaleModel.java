@@ -17,8 +17,26 @@ import de.urszeidler.ascape.AbstractYardSaleModel;
  */
 public class YardSaleModel extends AbstractYardSaleModel {
 	private static final long serialVersionUID = 6742573957490905687L;
+	private double deltaT = 1.0;
+	private double gamma = 0.1;
 
 	protected YardSaleAgent createAgent() {
-		return new YardSaleAgent();
+		return new YardSaleAgent(startWealth, deltaT, gamma);
+	}
+
+	public double getDeltaT() {
+		return deltaT;
+	}
+
+	public void setDeltaT(double deltaT) {
+		this.deltaT = deltaT;
+	}
+
+	public double getGamma() {
+		return gamma;
+	}
+
+	public void setGamma(double gamma) {
+		this.gamma = gamma;
 	}
 }

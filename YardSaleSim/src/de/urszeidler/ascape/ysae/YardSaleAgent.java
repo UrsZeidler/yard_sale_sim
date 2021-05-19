@@ -20,7 +20,12 @@ import de.urszeidler.ascape.AbstractYardSaleAgent;
  */
 public class YardSaleAgent extends AbstractYardSaleAgent {
 	private static final long serialVersionUID = -8934875282932069347L;
-	private double factor = 0.1;
+	private double factor;
+
+	public YardSaleAgent(double startWealth,double factor) {
+		this.wealth = startWealth;
+		this.factor = factor;
+	}
 
 	@Override
 	public void play(Agent agent) {

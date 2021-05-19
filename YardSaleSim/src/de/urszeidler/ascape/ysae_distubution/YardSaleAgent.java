@@ -19,11 +19,19 @@ import de.urszeidler.ascape.AbstractYardSaleAgent;
  */
 public class YardSaleAgent extends AbstractYardSaleAgent {
 	private static final long serialVersionUID = 8782427748882471750L;
-	private double deltaT = 1.0;
-	private double gamma = 0.01;
-	private double tau = 0.01;
+	private double deltaT;
+	private double gamma;
+	private double tau;
 
-	private double wealthPropotion = wealth;// W/N --> W = startWealh * N
+	private double wealthPropotion;// W/N --> W = startWealh * N
+
+	public YardSaleAgent(double startWealth, double deltaT, double gamma, double tau, double wealthPropotion) {
+		this.wealth = startWealth;
+		this.deltaT = deltaT;
+		this.gamma = gamma;
+		this.tau = tau;
+		this.wealthPropotion = wealthPropotion;
+	}
 
 	@Override
 	public void play(Agent agent) {
