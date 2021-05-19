@@ -6,11 +6,6 @@
  */
 package de.urszeidler.ascape.ysae_distubution;
 
-import org.ascape.model.HostCell;
-import org.ascape.model.Scape;
-import org.ascape.model.space.Array2DVonNeumann;
-import org.ascape.model.space.Coordinate2DDiscrete;
-
 import de.urszeidler.ascape.AbstractYardSaleModel;
 
 /**
@@ -23,23 +18,7 @@ import de.urszeidler.ascape.AbstractYardSaleModel;
 public class YardSaleModel extends AbstractYardSaleModel {
 	private static final long serialVersionUID = 6742573957490905687L;
 
-	@Override
-	public void createScape() {
-		super.createScape();
-		lattice = new Scape(new Array2DVonNeumann());
-		lattice.setPrototypeAgent(new HostCell());
-		lattice.setExtent(new Coordinate2DDiscrete(latticeWidth, latticeHeight));
-
-		YardSaleAgent yardSaleAgent = new YardSaleAgent();
-		yardSaleAgent.setHostScape(lattice);
-		players = new Scape();
-		players.setPrototypeAgent(yardSaleAgent);
-		players.setExecutionOrder(Scape.RULE_ORDER);
-
-		// allWealth = nPlayers * yardSaleAgent.getWealth();
-		add(lattice);
-		add(players);
-		addBasicStatistic(players);
+	protected YardSaleAgent createAgent() {
+		return new YardSaleAgent();
 	}
-
 }

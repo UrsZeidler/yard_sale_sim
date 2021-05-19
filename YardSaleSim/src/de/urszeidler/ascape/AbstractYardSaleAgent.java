@@ -11,8 +11,9 @@ import java.awt.Color;
 import org.ascape.model.CellOccupant;
 
 /**
- * @author urs
- *
+ * The basic behavior of a yard sale agent. 
+ * The agent has wealth, and a color depending on that wealth.
+ * And some basic random walk rule to engage in trade.
  */
 public abstract class AbstractYardSaleAgent extends CellOccupant {
 	private static final long serialVersionUID = 8636605561834666271L;

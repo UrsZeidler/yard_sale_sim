@@ -8,8 +8,11 @@ package de.urszeidler.ascape;
 
 import java.awt.Color;
 
+import org.ascape.model.HostCell;
 import org.ascape.model.Scape;
 import org.ascape.model.event.ScapeEvent;
+import org.ascape.model.space.Array2DVonNeumann;
+import org.ascape.model.space.Coordinate2DDiscrete;
 import org.ascape.util.data.StatCollector;
 import org.ascape.util.data.StatCollectorCSAMM;
 import org.ascape.util.data.StatCollectorCond;
@@ -17,8 +20,7 @@ import org.ascape.view.vis.ChartView;
 import org.ascape.view.vis.Overhead2DView;
 
 /**
- * @author urs
- *
+ * The basic behavior for a yard sale model. We collect some data and provide player and a playfield.
  */
 public abstract class AbstractYardSaleModel extends Scape {
 	private static final long serialVersionUID = -4242260594178308300L;
@@ -74,6 +76,26 @@ public abstract class AbstractYardSaleModel extends Scape {
 		players.addStatCollector(countPoor);
 		players.addStatCollector(countSuperRitch);
 		players.addStatCollector(wealthCollector);
+	}
+
+	protected abstract AbstractYardSaleAgent createAgent();
+	
+	@Override
+	public void createScape() {
+		super.createScape();
+		lattice = new Scape(new Array2DVonNeumann());
+		lattice.setPrototypeAgent(new HostCell());
+		lattice.setExtent(new Coordinate2DDiscrete(latticeWidth, latticeHeight));
+
+		AbstractYardSaleAgent cgplayer = createAgent();
+		cgplayer.setHostScape(lattice);
+		players = new Scape();
+		players.setPrototypeAgent(cgplayer);
+		players.setExecutionOrder(Scape.RULE_ORDER);
+
+		add(lattice);
+		add(players);
+		addBasicStatistic(players);
 	}
 
 	public int getnAgents() {
