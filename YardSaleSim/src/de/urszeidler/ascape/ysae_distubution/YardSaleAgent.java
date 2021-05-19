@@ -6,8 +6,6 @@
  */
 package de.urszeidler.ascape.ysae_distubution;
 
-import java.awt.Color;
-
 import org.ascape.model.Agent;
 
 import de.urszeidler.ascape.AbstractYardSaleAgent;
@@ -39,23 +37,4 @@ public class YardSaleAgent extends AbstractYardSaleAgent {
 		ysa2.wealth = ysa2.wealth + dwealth_static + redist2;
 		ysa1.wealth = ysa1.wealth - dwealth_static + redist1;
 	}
-
-	@Override
-	public int getAgentSize() {
-		if (wealth > 500) {
-			int w = (int) (wealth / 500);
-			return super.getAgentSize() + w;
-		}
-		return super.getAgentSize();
-	}
-
-	@Override
-	public Color getColor() {
-		int w = (int) (wealth / 50);
-		if (wealth > 1000)
-			return Color.black;
-
-		return w > colors.length - 1 ? Color.blue : colors[w];
-	}
-
 }

@@ -17,10 +17,10 @@ import org.ascape.model.CellOccupant;
  */
 public abstract class AbstractYardSaleAgent extends CellOccupant {
 	private static final long serialVersionUID = 8636605561834666271L;
+	private static final Color[] COLORS = { Color.white, Color.gray, Color.red, Color.orange, Color.pink };
+	private static final double START_WEALTH = 100.0;
 
-	protected double wealth = 100.0;
-
-	protected Color[] colors = { Color.white, Color.gray, Color.red, Color.orange, Color.pink };
+	protected double wealth = START_WEALTH;
 
 	public void scapeCreated() {
 		getScape().addInitialRule(MOVE_RANDOM_LOCATION_RULE);
@@ -35,7 +35,7 @@ public abstract class AbstractYardSaleAgent extends CellOccupant {
 		if (wealth > 1000)
 			return Color.black;
 
-		return w > colors.length - 1 ? Color.blue : colors[w];
+		return w > COLORS.length - 1 ? Color.blue : COLORS[w];
 	}
 
 	public double getWealth() {

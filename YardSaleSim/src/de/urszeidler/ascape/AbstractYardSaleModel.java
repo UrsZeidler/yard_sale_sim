@@ -65,18 +65,8 @@ public abstract class AbstractYardSaleModel extends Scape {
 	protected int latticeHeight = 35;
 	protected int latticeWidth = 35;
 	protected Scape lattice;
-	protected Scape players;
+	protected Scape agentScape;
 	private Overhead2DView overheadView;
-
-	protected void addBasicStatistic(Scape players) {
-		StatCollector countPoor = new StatCollectorPoor();
-		StatCollector countSuperRitch = new StatCollectorSuperRitch();
-		StatCollectorCSAMM wealthCollector = new StatCollectorWealth();
-
-		players.addStatCollector(countPoor);
-		players.addStatCollector(countSuperRitch);
-		players.addStatCollector(wealthCollector);
-	}
 
 	protected abstract AbstractYardSaleAgent createAgent();
 	
@@ -89,13 +79,45 @@ public abstract class AbstractYardSaleModel extends Scape {
 
 		AbstractYardSaleAgent cgplayer = createAgent();
 		cgplayer.setHostScape(lattice);
-		players = new Scape();
-		players.setPrototypeAgent(cgplayer);
-		players.setExecutionOrder(Scape.RULE_ORDER);
+		agentScape = new Scape();
+		agentScape.setPrototypeAgent(cgplayer);
+		agentScape.setExecutionOrder(Scape.RULE_ORDER);
 
 		add(lattice);
-		add(players);
-		addBasicStatistic(players);
+		add(agentScape);
+		addBasicStatistic(agentScape);
+	}
+
+	@Override
+	public void createGraphicViews() {
+		super.createGraphicViews();
+		ChartView chart = new ChartView("Wealth tracker");
+		agentScape.addView(chart);
+		chart.addSeries("Minimum wealth", Color.red);
+		chart.addSeries("Maximum wealth", Color.blue);
+		chart.addSeries("Average wealth", Color.green);
+	
+		chart = new ChartView("poor and ritch tracker");
+		agentScape.addView(chart);
+		chart.addSeries("Count poor", Color.blue);
+		chart.addSeries("Count super ritch", Color.gray);
+		overheadView = new Overhead2DView();
+		overheadView.setCellSize(15);
+		lattice.addView(overheadView);
+	}
+
+	public void scapeSetup(ScapeEvent scapeEvent) {
+		((Scape) agentScape).setExtent(nAgents);
+	}
+
+	protected void addBasicStatistic(Scape players) {
+		StatCollector countPoor = new StatCollectorPoor();
+		StatCollector countSuperRitch = new StatCollectorSuperRitch();
+		StatCollectorCSAMM wealthCollector = new StatCollectorWealth();
+	
+		players.addStatCollector(countPoor);
+		players.addStatCollector(countSuperRitch);
+		players.addStatCollector(wealthCollector);
 	}
 
 	public int getnAgents() {
@@ -106,25 +128,20 @@ public abstract class AbstractYardSaleModel extends Scape {
 		nAgents = agentNumber;
 	}
 
-	public void createGraphicViews() {
-		super.createGraphicViews();
-		ChartView chart = new ChartView();
-		players.addView(chart);
-		chart.addSeries("Minimum wealth", Color.red);
-		chart.addSeries("Maximum wealth", Color.blue);
-		chart.addSeries("Average wealth", Color.green);
-
-		chart = new ChartView();
-		players.addView(chart);
-		chart.addSeries("Count poor", Color.blue);
-		chart.addSeries("Count super ritch", Color.gray);
-		overheadView = new Overhead2DView();
-		overheadView.setCellSize(15);
-		lattice.addView(overheadView);
+	public int getLatticeHeight() {
+		return latticeHeight;
 	}
 
-	public void scapeSetup(ScapeEvent scapeEvent) {
-		((Scape) players).setExtent(nAgents);
+	public void setLatticeHeight(int latticeHeight) {
+		this.latticeHeight = latticeHeight;
+	}
+
+	public int getLatticeWidth() {
+		return latticeWidth;
+	}
+
+	public void setLatticeWidth(int latticeWidth) {
+		this.latticeWidth = latticeWidth;
 	}
 
 }

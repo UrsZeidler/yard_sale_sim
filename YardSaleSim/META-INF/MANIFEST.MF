@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: SimProject1
-Bundle-SymbolicName: YardSaleSim
+Bundle-Name: YardSaleSim
+Bundle-SymbolicName: de.urszeidler.eclipse.yardsalesim
 Bundle-Version: 1.0.0
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.ascape.core,
  org.ascape.ui.swing,
- org.ascape.models.brook;bundle-version="5.6.1",
- org.ascape.models.examples;bundle-version="5.3.0"
+ org.ascape.models.brook,
+ org.ascape.models.examples
+Bundle-Vendor: Urs Zeidler
 
