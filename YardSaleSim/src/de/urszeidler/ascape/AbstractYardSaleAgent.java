@@ -17,8 +17,11 @@ import org.ascape.model.CellOccupant;
  */
 public abstract class AbstractYardSaleAgent extends CellOccupant {
 	private static final long serialVersionUID = 8636605561834666271L;
-	private static final Color[] COLORS = { Color.white, Color.gray, Color.red, Color.orange, Color.pink };
+	private static final Color[] COLORS = { Color.white, Color.lightGray,Color.gray, Color.red, Color.orange, Color.pink };
 
+	private static final int WEALTH_CLASSIFICATION_FACTOR = 50;
+	private static final int SUPER_WEALTH_VALUE = COLORS.length * WEALTH_CLASSIFICATION_FACTOR * 5;
+	
 	protected double wealth;
 
 	public void scapeCreated() {
@@ -30,8 +33,8 @@ public abstract class AbstractYardSaleAgent extends CellOccupant {
 
 	@Override
 	public Color getColor() {
-		int w = (int) (wealth / 50);
-		if (wealth > 1000)
+		int w = (int) (wealth / WEALTH_CLASSIFICATION_FACTOR);
+		if (wealth > SUPER_WEALTH_VALUE)
 			return Color.black;
 
 		return w > COLORS.length - 1 ? Color.blue : COLORS[w];
