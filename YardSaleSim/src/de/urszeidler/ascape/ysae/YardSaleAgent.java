@@ -37,20 +37,4 @@ public class YardSaleAgent extends AbstractYardSaleAgent {
 		ysa1.wealth = ysa1.wealth - dwealth;
 	}
 
-	@Override
-	public int getAgentSize() {
-		if (wealth > 500) {
-			int w = (int) (wealth / 500);
-			return super.getAgentSize() + w;
-		}
-		return super.getAgentSize();
-	}
-
-	public double getFactor() {
-		return factor;
-	}
-
-	public void setFactor(double factor) {
-		this.factor = factor;
-	}
 }
