@@ -79,10 +79,10 @@ public abstract class AbstractYardSaleModel extends Scape {
 		lattice.setPrototypeAgent(new HostCell());
 		lattice.setExtent(new Coordinate2DDiscrete(latticeWidth, latticeHeight));
 
-		AbstractYardSaleAgent cgplayer = createAgent();
-		cgplayer.setHostScape(lattice);
+		AbstractYardSaleAgent agent = createAgent();
+		agent.setHostScape(lattice);
 		agentScape = new Scape();
-		agentScape.setPrototypeAgent(cgplayer);
+		agentScape.setPrototypeAgent(agent);
 		agentScape.setExecutionOrder(Scape.RULE_ORDER);
 
 		add(lattice);
