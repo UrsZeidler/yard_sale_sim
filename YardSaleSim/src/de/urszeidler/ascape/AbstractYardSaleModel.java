@@ -20,7 +20,8 @@ import org.ascape.view.vis.ChartView;
 import org.ascape.view.vis.Overhead2DView;
 
 /**
- * The basic behavior for a yard sale model. We collect some data and provide player and a playfield.
+ * The basic behavior for a yard sale model. We collect some data and provide
+ * player and a playfield.
  */
 public abstract class AbstractYardSaleModel extends Scape {
 	private static final long serialVersionUID = -4242260594178308300L;
@@ -37,15 +38,15 @@ public abstract class AbstractYardSaleModel extends Scape {
 		}
 	}
 
-	private final class StatCollectorSuperRitch extends StatCollectorCond {
+	private final class StatCollectorSuperrich extends StatCollectorCond {
 		private static final long serialVersionUID = -1545296357297192457L;
 
-		private StatCollectorSuperRitch() {
-			super("super ritch");
+		private StatCollectorSuperrich() {
+			super("super rich");
 		}
 
 		public boolean meetsCondition(Object object) {
-			return (((AbstractYardSaleAgent) object).getWealth() > 1000.0);
+			return (((AbstractYardSaleAgent) object).getWealth() > richValue);
 		}
 	}
 
@@ -57,7 +58,7 @@ public abstract class AbstractYardSaleModel extends Scape {
 		}
 
 		public boolean meetsCondition(Object object) {
-			return (((AbstractYardSaleAgent) object).getWealth() < 10.0);
+			return (((AbstractYardSaleAgent) object).getWealth() < poorValue);
 		}
 	}
 
@@ -66,6 +67,12 @@ public abstract class AbstractYardSaleModel extends Scape {
 
 	protected int latticeHeight = 35;
 	protected int latticeWidth = 35;
+	// statistic
+	protected double richValue;
+	protected double poorValue;
+	protected double richfactor = 10.0;
+	protected double poorfactor = 0.1;
+
 	protected Scape lattice;
 	protected Scape agentScape;
 	private Overhead2DView overheadView;
@@ -78,6 +85,9 @@ public abstract class AbstractYardSaleModel extends Scape {
 		lattice = new Scape(new Array2DVonNeumann());
 		lattice.setPrototypeAgent(new HostCell());
 		lattice.setExtent(new Coordinate2DDiscrete(latticeWidth, latticeHeight));
+
+		richValue = startWealth * richfactor;
+		poorValue = startWealth * poorfactor;
 
 		AbstractYardSaleAgent agent = createAgent();
 		agent.setHostScape(lattice);
@@ -99,10 +109,10 @@ public abstract class AbstractYardSaleModel extends Scape {
 		chart.addSeries("Maximum wealth", Color.blue);
 		chart.addSeries("Average wealth", Color.green);
 	
-		chart = new ChartView("poor and ritch tracker");
+		chart = new ChartView("poor and rich tracker");
 		agentScape.addView(chart);
 		chart.addSeries("Count poor", Color.blue);
-		chart.addSeries("Count super ritch", Color.gray);
+		chart.addSeries("Count super rich", Color.gray);
 		overheadView = new Overhead2DView();
 		overheadView.setCellSize(15);
 		lattice.addView(overheadView);
@@ -114,11 +124,11 @@ public abstract class AbstractYardSaleModel extends Scape {
 
 	protected void addBasicStatistic(Scape players) {
 		StatCollector countPoor = new StatCollectorPoor();
-		StatCollector countSuperRitch = new StatCollectorSuperRitch();
+		StatCollector countSuperrich = new StatCollectorSuperrich();
 		StatCollectorCSAMM wealthCollector = new StatCollectorWealth();
 	
 		players.addStatCollector(countPoor);
-		players.addStatCollector(countSuperRitch);
+		players.addStatCollector(countSuperrich);
 		players.addStatCollector(wealthCollector);
 	}
 
@@ -152,6 +162,22 @@ public abstract class AbstractYardSaleModel extends Scape {
 
 	public void setStartWealth(double startWealth) {
 		this.startWealth = startWealth;
+	}
+
+	public double getRichfactor() {
+		return richfactor;
+	}
+
+	public void setRichfactor(double richfactor) {
+		this.richfactor = richfactor;
+	}
+
+	public double getPoorfactor() {
+		return poorfactor;
+	}
+
+	public void setPoorfactor(double poorfactor) {
+		this.poorfactor = poorfactor;
 	}
 
 }
