@@ -1,6 +1,6 @@
 # Simple implementation of the yard sale model in economics
 
-This software is a basic implementation of the defined models in the papers:
+This software is a basic implementation of the defined yard sales models in the papers:
 
 > Boghosian, B.M., Johnson, M. & Marcq, J.A. 
 An H Theorem for Boltzmann’s Equation for the Yard-Sale Model of Asset Exchange. 
@@ -10,9 +10,16 @@ J Stat Phys 161, 1339–1350 (2015). https://doi.org/10.1007/s10955-015-1316-8
 Oligarchy as a Phase Transition: The effect of wealth-attained advantage in a Fokker-Planck description of asset exchange. 
 last revised 20 Feb 2016  https://arxiv.org/abs/1511.00770v2
 
+> Jie Li, Bruce M. Boghosian, Chengli Li,
+The Affine Wealth Model: An agent-based model of asset exchange that allows for negative-wealth agents and its empirical validation,
+Physica A: Statistical Mechanics and its Applications,
+Volume 516, 2019, Pages 423-442, ISSN 0378-4371,https://doi.org/10.1016/j.physa.2018.10.042.(https://www.sciencedirect.com/science/article/pii/S0378437118313906)
+https://arxiv.org/pdf/1604.02370.pdf
+
 The sim uses the ascape api for gent based simulations. (http://ascape.sourceforge.net/)
 
 The agents move on the plane (a discrete 2D VonNeumann space) and interact with each other defined by the corresponding algorithm. The all started out with the same amount of wealth, so the GiniQuifizent is 0, at the beginning. All models share the same basic data and structures defined by the abstract class _de.urszeidler.ascape.AbstractYardSaleModel_. These are _nAgents_ , _startWealth_  and the dimensions ( _latticeHeight_ , _latticeWidth_ ) of the space. The basic agent behavior is defined by the abstract class _de.urszeidler.ascape.AbstractYardSaleAgent_ and includes the _wealth_ of the agent also the behavior set, like moving in the plane and interact and some style definition (color) depending on the individual wealth. The system is stable in any way, the wealth is constant over time, no agent leaves.
+As agents need to move to change interaction parters, so the space occupation factor starts to impact the original equations when it get crowdy. For example, when the spaceocc. is 100% and there is no movement, the system tends to build local oligarchies. This might be interesting when moving to a more historical perspective, where moving of the capital was some how restricted. 
 
 The predefined values are:
 
@@ -39,7 +46,16 @@ An agent is counted as rich if it wealth is greater than richfactor * startWealt
 
 You can tweak these values between model runs. For details see http://ascape.sourceforge.net/index.html#Exploring
 
+A simple run of the different model can be found [here](YardSaleSim/doc/README.md "model runs") 
 
 To use and try the sim, use the eclipse installer and the etc/ide/SimYardSale.setup Oohmp setup, which will install and configure a eclipse installation, and checkout the code and import it.
 
 * download the installer, get the setup file and install
+
+
+other yard sale model projects:
+
+http://www.physics.umd.edu/hep/drew/math_general/yard_sale.html
+
+
+
