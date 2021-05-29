@@ -47,7 +47,7 @@ Also a run with about 40.000 iterations, compressed to 2 and a half minutes. (ab
 
 ### implementation description
 
-You will find some more specific notes in [the math](YardSaleSim/doc/yard-sale.html).
+You will find some more specific notes in [the math](https://raw.githack.com/UrsZeidler/yard_sale_sim/master/YardSaleSim/doc/yard-sale.html). Or the corresponding wxMaxima (http://wxmaxima-developers.github.io/wxmaxima/) file YardSaleSim/doc/yard-sale.wxmx .
 
 #### de.urszeidler.ascape.ysae.YardSaleModel
 
