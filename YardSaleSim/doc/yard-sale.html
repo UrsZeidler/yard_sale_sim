@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <title>yard-sale</title>
+    <meta name="generator" content="wxMaxima"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="yard-sale_htmlimg/yard-sale.css"/>
+  </head>
+  <body>
+    <!-- ****************************************************** -->
+    <!-- *        Created with wxMaxima version 19.07.0       * -->
+    <!-- ****************************************************** -->
+    <noscript>
+      <div class="error message">
+        <p>Please enable JavaScript in order to get a 2d display of the equations embedded in this web page.</p>
+      </div>
+    </noscript>
+    <p hidden="hidden">\(      \DeclareMathOperator{\abs}{abs}
+      \newcommand{\ensuremath}[1]{\mbox{$#1$}}
+\)</p>
+    <!-- Title cell -->
+    <div class="title">
+      <p>An H Theorem for Boltzmann’s Equation for the Yard-Sale Model of Asset Exchange
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>Boghosian, B.M., Johnson, M. &amp; Marcq, J.A. An H Theorem for Boltzmann’s Equation for the Yard-Sale Model of Asset Exchange. J Stat Phys 161, 1339–1350 (2015). https://doi.org/10.1007/s10955-015-1316-8
+</p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  0.1 Pareto’s observations in modern terms
+        <br/>
+      </p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>A(w) is the cumulative distribution function (CDF) of economic agents, ordered by wealth. Let us denote the corresponding probability density function (PDF) of agents by P(w), but we shall adopt the convention of normalizing P to the total number of economic agents, rather than to unity, so that ∫badwP(w) is the total number of agents with wealth in [a, b], for 0≤a&lt;b.
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>The total number of economic agents is given by the zeroth moment of the PDF of agents:
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">N</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">p</span>(
+            <span class="code_variable">w</span>),
+            <span class="code_variable">w</span>,
+            <span class="code_number">0</span>,∞)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o7) </mtext>
+          </mtd>
+          <mtd>
+            <mi>N</mi>
+            <mi>=</mi>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>∞</mi>
+              </munderover>
+              <mrow>
+                <mi>p</mi>
+                <mo>⁡</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mi>w</mi>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>w</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>and the total amount of wealth in the economy is given by the first moment,
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">W</span>
+            <span class="code_operator">=</span>
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">p</span>(
+            <span class="code_variable">w</span>)·
+            <span class="code_variable">w</span>,
+            <span class="code_variable">w</span>,
+            <span class="code_number">0</span>,∞)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o8) </mtext>
+          </mtd>
+          <mtd>
+            <mi>W</mi>
+            <mi>=</mi>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>∞</mi>
+              </munderover>
+              <mrow>
+                <mi>w</mi>
+                <mo>⁢</mo>
+                <mrow>
+                  <mi>p</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mi>w</mi>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>w</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>so that A(w) is the following:
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">A</span>(
+            <span class="code_variable">w</span>) 
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span>) · 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">p</span>(
+            <span class="code_variable">x</span>),
+            <span class="code_variable">x</span>,
+            <span class="code_variable">w</span>,∞)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o9) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>A</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mi>w</mi>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mi>=</mi>
+            <mfrac>
+              <mrow>
+                <munderover>
+                  <mo>∫</mo>
+                  <mi>w</mi>
+                  <mi>∞</mi>
+                </munderover>
+                <mrow>
+                  <mi>p</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mi>x</mi>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>x</mi>
+                </mrow>
+              </mrow>
+              <mi>N</mi>
+            </mfrac>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>From the Fundamental Theorem of Calculus, we see that the PDF of agents is related to the derivative of Pareto’s function
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">p</span>(
+            <span class="code_variable">w</span>) 
+            <span class="code_operator">=</span>
+            <span class="code_function">diff</span>( 
+            <span class="code_operator">−</span>
+            <span class="code_variable">N</span> · 
+            <span class="code_function">A</span>(
+            <span class="code_variable">w</span>),
+            <span class="code_variable">w</span>,
+            <span class="code_number">1</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o11) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>p</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mi>w</mi>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mi>=</mi>
+            <mi>−</mi>
+            <mi>N</mi>
+            <mo>⁢</mo>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <mfrac>
+                  <mi>d</mi>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo>⁢</mo>
+                    <mi>w</mi>
+                  </mrow>
+                </mfrac>
+                <mrow>
+                  <mo>⁢</mo>
+                  <mrow>
+                    <mi>A</mi>
+                    <mo>⁡</mo>
+                    <mrow>
+                      <mo>(</mo>
+                      <mi>w</mi>
+                      <mo>)</mo>
+                    </mrow>
+                  </mrow>
+                </mrow>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  0.2 The Lorenz Curve
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>Max O. Lorenz plotted the cumulative distribution of wealth versus the cumulative distribution of agents. That is, Lorenz made a parametric plot of the quantity
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">L</span>(
+            <span class="code_variable">w</span>) 
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">W</span>)· 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">p</span>(
+            <span class="code_variable">x</span>)·
+            <span class="code_variable">x</span>,
+            <span class="code_variable">x</span>,
+            <span class="code_number">0</span>,
+            <span class="code_variable">w</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o14) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>L</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mi>w</mi>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>:=</mo>
+            <mfrac>
+              <mn>1</mn>
+              <mi>W</mi>
+            </mfrac>
+            <mo>⁢</mo>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>w</mi>
+              </munderover>
+              <mrow>
+                <mrow>
+                  <mi>p</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mi>x</mi>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mo>⁢</mo>
+                <mi>x</mi>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>vs quantity
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>L(w) := (1/W)* 'integrate(p(x)*x,x,0,w);
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">F</span>(
+            <span class="code_variable">w</span>) 
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span>)· 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">p</span>(
+            <span class="code_variable">x</span>),
+            <span class="code_variable">x</span>,
+            <span class="code_number">0</span>,
+            <span class="code_variable">w</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o15) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>F</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mi>w</mi>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>:=</mo>
+            <mfrac>
+              <mn>1</mn>
+              <mi>N</mi>
+            </mfrac>
+            <mo>⁢</mo>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>w</mi>
+              </munderover>
+              <mrow>
+                <mi>p</mi>
+                <mo>⁡</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mi>x</mi>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>https://en.wikipedia.org/wiki/Lorenz_curve
+        <br/>
+      </p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  0.3 Background to the Yard-Sale Model of Asset Exchange
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>Asset-Exchange Models (AEMs) and they typically involve binary transactions between agents involving some increment of wealth Δw, with rules for which agent gains it and which agent loses it.
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>The amount of wealth that will be transferred from agent 1 to agent 2 in this transaction is then Δw=β min (w1,w2), where β∈(−1,+1) is sampled from a symmetric PDF denoted by η(β). Note that, because η(β) is symmetric, the two agents both have even odds of winning and losing.
+        <br/>
+        <br/>in which Δw is proportional to the wealth of the poorer agent
+        <br/>
+      </p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">Δw</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">β</span>· 
+            <span class="code_function">min</span> (
+            <span class="code_variable">w1</span>,
+            <span class="code_variable">w2</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o4) </mtext>
+          </mtd>
+          <mtd>
+            <mi>Δw</mi>
+            <mi>=</mi>
+            <mrow>
+              <mi>min</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>w1</mi>
+                  <mo>,</mo>
+                  <mi>w2</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>⁢</mo>
+            <mi>β</mi>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">β</span>∈(
+            <span class="code_number">−</span>
+            <span class="code_number">1</span>,
+            <span class="code_number">+</span>
+            <span class="code_number">1</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o5) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>β∈</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>−</mi>
+                  <mn>1</mn>
+                  <mo>,</mo>
+                  <mn>1</mn>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>This is implemented in de.urszeidler.ascape.ysae.YardSaleModel 
+        <br/>
+        <br/>YardSaleAgent ysa1 = this;
+        <br/>YardSaleAgent ysa2 = (YardSaleAgent) agent;
+        <br/>double beta = factor * (randomIs() ? 1.0 : -1.0);
+        <br/>double dwealth = beta * Math.min(ysa1.wealth, ysa2.wealth);
+        <br/>ysa2.wealth = ysa2.wealth + dwealth;
+        <br/>ysa1.wealth = ysa1.wealth - dwealth;
+        <br/>
+      </p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  0.4 Fokker–Planck Equation for the Yard-Sale Model
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">C</span>(
+            <span class="code_variable">w</span>)
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span> · 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span> (
+            <span class="code_function">P</span>(
+            <span class="code_variable">x</span>)·(
+            <span class="code_number">1</span>
+            <span class="code_operator">−</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">w</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>),
+            <span class="code_variable">x</span>,
+            <span class="code_number">0</span>,
+            <span class="code_variable">w</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o1) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>C</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mi>w</mi>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>:=</mo>
+            <mn>1</mn>
+            <mi>−</mi>
+            <mfrac>
+              <mn>1</mn>
+              <mi>N</mi>
+            </mfrac>
+            <mo>⁢</mo>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>w</mi>
+              </munderover>
+              <mrow>
+                <mrow>
+                  <mi>P</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mi>x</mi>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mo>⁢</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow>
+                    <mn>1</mn>
+                    <mi>−</mi>
+                    <mfrac>
+                      <msup>
+                        <mi>x</mi>
+                        <mn>2</mn>
+                      </msup>
+                      <msup>
+                        <mi>w</mi>
+                        <mn>2</mn>
+                      </msup>
+                    </mfrac>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">∂
+            <span class="code_function">P</span>(
+            <span class="code_variable">w</span>)
+            <span class="code_operator">/</span>∂
+            <span class="code_variable">t</span>
+            <span class="code_operator">=</span>∂
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">/</span>∂
+            <span class="code_variable">w</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>·(
+            <span class="code_variable">γ</span>·(
+            <span class="code_variable">w</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>)·
+            <span class="code_function">C</span>(
+            <span class="code_variable">w</span>)·
+            <span class="code_function">P</span>(
+            <span class="code_variable">w</span>))
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o2) </mtext>
+          </mtd>
+          <mtd>
+            <mfrac>
+              <mrow>
+                <mi>∂P</mi>
+                <mo>⁡</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mi>w</mi>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mi>∂t</mi>
+            </mfrac>
+            <mi>=</mi>
+            <mfrac>
+              <mrow>
+                <msup>
+                  <mi>w</mi>
+                  <mn>2</mn>
+                </msup>
+                <mo>⁢</mo>
+                <mrow>
+                  <mi>P</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mi>w</mi>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mo>⁢</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow>
+                    <mn>1</mn>
+                    <mi>−</mi>
+                    <mfrac>
+                      <mrow>
+                        <munderover>
+                          <mo>∫</mo>
+                          <mn>0</mn>
+                          <mi>w</mi>
+                        </munderover>
+                        <mrow>
+                          <mrow>
+                            <mo>(</mo>
+                            <mrow>
+                              <mn>1</mn>
+                              <mi>−</mi>
+                              <mfrac>
+                                <msup>
+                                  <mi>x</mi>
+                                  <mn>2</mn>
+                                </msup>
+                                <msup>
+                                  <mi>w</mi>
+                                  <mn>2</mn>
+                                </msup>
+                              </mfrac>
+                            </mrow>
+                            <mo>)</mo>
+                          </mrow>
+                          <mo>⁢</mo>
+                          <mrow>
+                            <mi>P</mi>
+                            <mo>⁡</mo>
+                            <mrow>
+                              <mo>(</mo>
+                              <mi>x</mi>
+                              <mo>)</mo>
+                            </mrow>
+                          </mrow>
+                        </mrow>
+                        <mrow>
+                          <mi>d</mi>
+                          <mi>x</mi>
+                        </mrow>
+                      </mrow>
+                      <mi>N</mi>
+                    </mfrac>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+                <mo>⁢</mo>
+                <mi>γ</mi>
+                <mo>⁢</mo>
+                <msup>
+                  <mi>∂</mi>
+                  <mn>2</mn>
+                </msup>
+              </mrow>
+              <mrow>
+                <mn>2</mn>
+                <mo>⁢</mo>
+                <msup>
+                  <mi>∂w</mi>
+                  <mn>2</mn>
+                </msup>
+              </mrow>
+            </mfrac>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Section cell -->
+    <div class="section">
+      <p>  1 Oligarchy as a Phase Transition: The effect of wealth-attained advantage in a
+        <br/>Fokker-Planck description of asset exchange
+        <br/>
+      </p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>Bruce M. Boghosian, 1 Adrian Devitt-Lee, 1 Merek Johnson, 1 Jeremy A. Marcq, 1 and Hongyan Wang 1
+        <br/>1
+        <br/>Department of Mathematics, Tufts University, Medford, Massachusetts 02155, USA
+        <br/>(Dated: October 8, 2018)
+</p>
+    </div>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  1.1 Pareto potentials.
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">A</span>(
+            <span class="code_variable">w</span>,
+            <span class="code_variable">t</span>) 
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span>) · 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">P</span>(
+            <span class="code_variable">x</span>,
+            <span class="code_variable">t</span>),
+            <span class="code_variable">x</span>,
+            <span class="code_variable">w</span>,∞)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o17) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>A</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>w</mi>
+                  <mo>,</mo>
+                  <mi>t</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>:=</mo>
+            <mfrac>
+              <mn>1</mn>
+              <mi>N</mi>
+            </mfrac>
+            <mo>⁢</mo>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mi>w</mi>
+                <mi>∞</mi>
+              </munderover>
+              <mrow>
+                <mi>P</mi>
+                <mo>⁡</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow>
+                    <mi>x</mi>
+                    <mo>,</mo>
+                    <mi>t</mi>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">F</span>(
+            <span class="code_variable">w</span>,
+            <span class="code_variable">t</span>) 
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span>) · 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">P</span>(
+            <span class="code_variable">x</span>,
+            <span class="code_variable">t</span>),
+            <span class="code_variable">x</span>,
+            <span class="code_number">0</span>,
+            <span class="code_variable">w</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o18) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>F</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>w</mi>
+                  <mo>,</mo>
+                  <mi>t</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>:=</mo>
+            <mfrac>
+              <mn>1</mn>
+              <mi>N</mi>
+            </mfrac>
+            <mo>⁢</mo>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>w</mi>
+              </munderover>
+              <mrow>
+                <mi>P</mi>
+                <mo>⁡</mo>
+                <mrow>
+                  <mo>(</mo>
+                  <mrow>
+                    <mi>x</mi>
+                    <mo>,</mo>
+                    <mi>t</mi>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">L</span>(
+            <span class="code_variable">w</span>,
+            <span class="code_variable">t</span>) 
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">W</span>) · 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">P</span>(
+            <span class="code_variable">x</span>,
+            <span class="code_variable">t</span>)·
+            <span class="code_variable">x</span>,
+            <span class="code_variable">x</span>,
+            <span class="code_number">0</span>,
+            <span class="code_variable">w</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o19) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>L</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>w</mi>
+                  <mo>,</mo>
+                  <mi>t</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>:=</mo>
+            <mfrac>
+              <mn>1</mn>
+              <mi>W</mi>
+            </mfrac>
+            <mo>⁢</mo>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>w</mi>
+              </munderover>
+              <mrow>
+                <mrow>
+                  <mi>P</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mrow>
+                      <mi>x</mi>
+                      <mo>,</mo>
+                      <mi>t</mi>
+                    </mrow>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mo>⁢</mo>
+                <mi>x</mi>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">B</span>(
+            <span class="code_variable">w</span>,
+            <span class="code_variable">t</span>) 
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span>) · 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">P</span>(
+            <span class="code_variable">x</span>,
+            <span class="code_variable">t</span>)·(
+            <span class="code_variable">x</span>²
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>),
+            <span class="code_variable">x</span>,
+            <span class="code_number">0</span>,
+            <span class="code_variable">w</span>)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o21) </mtext>
+          </mtd>
+          <mtd>
+            <mrow>
+              <mi>B</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>w</mi>
+                  <mo>,</mo>
+                  <mi>t</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>:=</mo>
+            <mfrac>
+              <mn>1</mn>
+              <mi>N</mi>
+            </mfrac>
+            <mo>⁢</mo>
+            <mrow>
+              <munderover>
+                <mo>∫</mo>
+                <mn>0</mn>
+                <mi>w</mi>
+              </munderover>
+              <mrow>
+                <mrow>
+                  <mi>P</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mrow>
+                      <mi>x</mi>
+                      <mo>,</mo>
+                      <mi>t</mi>
+                    </mrow>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mo>⁢</mo>
+                <mfrac>
+                  <msup>
+                    <mi>x</mi>
+                    <mn>2</mn>
+                  </msup>
+                  <mn>2</mn>
+                </mfrac>
+              </mrow>
+              <mrow>
+                <mi>d</mi>
+                <mi>x</mi>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_function">A</span>(
+            <span class="code_variable">w</span>, 
+            <span class="code_variable">t</span>) 
+            <span class="code_operator">+</span>
+            <span class="code_function">F</span> (
+            <span class="code_variable">w</span>, 
+            <span class="code_variable">t</span>) 
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o22) </mtext>
+          </mtd>
+          <mtd>
+            <mfrac>
+              <mrow>
+                <munderover>
+                  <mo>∫</mo>
+                  <mi>w</mi>
+                  <mi>∞</mi>
+                </munderover>
+                <mrow>
+                  <mi>P</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mrow>
+                      <mi>x</mi>
+                      <mo>,</mo>
+                      <mi>t</mi>
+                    </mrow>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>x</mi>
+                </mrow>
+              </mrow>
+              <mi>N</mi>
+            </mfrac>
+            <mo>+</mo>
+            <mfrac>
+              <mrow>
+                <munderover>
+                  <mo>∫</mo>
+                  <mn>0</mn>
+                  <mi>w</mi>
+                </munderover>
+                <mrow>
+                  <mi>P</mi>
+                  <mo>⁡</mo>
+                  <mrow>
+                    <mo>(</mo>
+                    <mrow>
+                      <mi>x</mi>
+                      <mo>,</mo>
+                      <mi>t</mi>
+                    </mrow>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>x</mi>
+                </mrow>
+              </mrow>
+              <mi>N</mi>
+            </mfrac>
+            <mi>=</mi>
+            <mn>1</mn>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Subsection cell -->
+    <div class="subsect">
+      <p>  1.2 B.
+        <br/>Transactional exchange
+</p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">w</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">w1</span>
+            <span class="code_operator">+</span> ∆
+            <span class="code_variable">w</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o23) </mtext>
+          </mtd>
+          <mtd>
+            <mi>w</mi>
+            <mi>=</mi>
+            <mi>∆w</mi>
+            <mo>+</mo>
+            <mi>w1</mi>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">∆
+            <span class="code_variable">w</span>
+            <span class="code_operator">=</span>
+            <span class="code_function">sqr</span>(
+            <span class="code_variable">γ</span>·∆
+            <span class="code_variable">t</span>) · 
+            <span class="code_function">min</span>(
+            <span class="code_variable">t1</span>, 
+            <span class="code_variable">t2</span>)·
+            <span class="code_variable">η</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o24) </mtext>
+          </mtd>
+          <mtd>
+            <mi>∆w</mi>
+            <mi>=</mi>
+            <mrow>
+              <mi>min</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>t1</mi>
+                  <mo>,</mo>
+                  <mi>t2</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>⁢</mo>
+            <mi>η</mi>
+            <mo>⁢</mo>
+            <mrow>
+              <mi>sqr</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>γ</mi>
+                  <mo>⁢</mo>
+                  <mi>∆t</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">∆
+            <span class="code_variable">w</span>
+            <span class="code_operator">=</span> √(
+            <span class="code_variable">γ</span>·∆
+            <span class="code_variable">t</span>) · 
+            <span class="code_function">min</span>(
+            <span class="code_variable">t1</span>, 
+            <span class="code_variable">t2</span>)·
+            <span class="code_variable">η</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o25) </mtext>
+          </mtd>
+          <mtd>
+            <mi>∆w</mi>
+            <mi>=</mi>
+            <mrow>
+              <mi>min</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>t1</mi>
+                  <mo>,</mo>
+                  <mi>t2</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>⁢</mo>
+            <mi>η</mi>
+            <mo>⁢</mo>
+            <msqrt>
+              <mrow>
+                <mi>γ</mi>
+                <mo>⁢</mo>
+                <mi>∆t</mi>
+              </mrow>
+            </msqrt>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">η</span>
+            <span class="code_operator">:</span> {
+            <span class="code_number">−</span>
+            <span class="code_number">1</span>, 
+            <span class="code_number">+</span>
+            <span class="code_number">1</span>}
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(η)</mtext>
+          </mtd>
+          <mtd>
+            <mo>{</mo>
+            <mi>−</mi>
+            <mn>1</mn>
+            <mo>,</mo>
+            <mn>1</mn>
+            <mo>}</mo>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>Here we have taken β = √γ∆t, where ∆t is the characteristic time associated with a transaction, for reasons
+        <br/>which will become clear shortly
+</p>
+    </div>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>This in implemented by de.urszeidler.ascape.ysae1.YardSaleModel
+        <br/>
+        <br/>YardSaleAgent ysa1 = this;
+        <br/>YardSaleAgent ysa2 = (YardSaleAgent) agent;
+        <br/>double beta = Math.sqrt(deltaT * gamma) * (randomIs() ? 1.0 : -1.0);
+        <br/>double dwealth = beta * Math.min(ysa1.wealth, ysa2.wealth);
+        <br/>ysa2.wealth = ysa2.wealth + dwealth;
+        <br/>ysa1.wealth = ysa1.wealth - dwealth;
+        <br/>
+      </p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">E</span>[
+            <span class="code_variable">η</span>] 
+            <span class="code_operator">=</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o27) </mtext>
+          </mtd>
+          <mtd>
+            <msub>
+              <mi>E</mi>
+              <mrow>
+                <mo>{</mo>
+                <mi>−</mi>
+                <mn>1</mn>
+                <mo>,</mo>
+                <mn>1</mn>
+                <mo>}</mo>
+              </mrow>
+            </msub>
+            <mi>=</mi>
+            <mn>0</mn>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">E</span>[
+            <span class="code_variable">η</span>
+            <span class="code_operator">^</span>
+            <span class="code_number">2</span> ] 
+            <span class="code_operator">=</span>
+            <span class="code_number">1</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o28) </mtext>
+          </mtd>
+          <mtd>
+            <msub>
+              <mi>E</mi>
+              <msup>
+                <mrow>
+                  <mo>{</mo>
+                  <mi>−</mi>
+                  <mn>1</mn>
+                  <mo>,</mo>
+                  <mn>1</mn>
+                  <mo>}</mo>
+                </mrow>
+                <mn>2</mn>
+              </msup>
+            </msub>
+            <mi>=</mi>
+            <mn>1</mn>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">E</span>[
+            <span class="code_variable">f</span>] 
+            <span class="code_operator">=</span> (
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span>) · 
+            <span class="code_operator">'</span>
+            <span class="code_function">integrate</span>(
+            <span class="code_function">P</span>(
+            <span class="code_variable">x</span>,
+            <span class="code_variable">t</span>) · 
+            <span class="code_variable">E</span>[
+            <span class="code_function">f</span>(
+            <span class="code_variable">η</span>,
+            <span class="code_variable">x</span>)],
+            <span class="code_variable">x</span>,
+            <span class="code_number">0</span>,∞)
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o29) </mtext>
+          </mtd>
+          <mtd>
+            <msub>
+              <mi>E</mi>
+              <mi>f</mi>
+            </msub>
+            <mi>=</mi>
+            <mfrac>
+              <mrow>
+                <munderover>
+                  <mo>∫</mo>
+                  <mn>0</mn>
+                  <mi>∞</mi>
+                </munderover>
+                <mrow>
+                  <msub>
+                    <mi>E</mi>
+                    <mrow>
+                      <mi>f</mi>
+                      <mo>⁡</mo>
+                      <mrow>
+                        <mo>(</mo>
+                        <mrow>
+                          <mo>{</mo>
+                          <mi>−</mi>
+                          <mn>1</mn>
+                          <mo>,</mo>
+                          <mn>1</mn>
+                          <mo>}</mo>
+                          <mo>,</mo>
+                          <mi>x</mi>
+                        </mrow>
+                        <mo>)</mo>
+                      </mrow>
+                    </mrow>
+                  </msub>
+                  <mo>⁢</mo>
+                  <mrow>
+                    <mi>P</mi>
+                    <mo>⁡</mo>
+                    <mrow>
+                      <mo>(</mo>
+                      <mrow>
+                        <mi>x</mi>
+                        <mo>,</mo>
+                        <mi>t</mi>
+                      </mrow>
+                      <mo>)</mo>
+                    </mrow>
+                  </mrow>
+                </mrow>
+                <mrow>
+                  <mi>d</mi>
+                  <mi>x</mi>
+                </mrow>
+              </mrow>
+              <mi>N</mi>
+            </mfrac>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>REDISTRIBUTION IN THE YARD-SALE MODEL
+        <br/>Derivation of the Fokker-Planck equation for the redistributional YSM
+        <br/>
+        <br/>Redistribution funktion:
+        <br/>
+      </p>
+    </div>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_variable">Δw</span>
+            <span class="code_operator">=</span> (
+            <span class="code_variable">τ</span> · 
+            <span class="code_variable">Δt</span>) · ((
+            <span class="code_variable">W</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">N</span>) 
+            <span class="code_operator">−</span>
+            <span class="code_variable">w</span>) 
+            <span class="code_operator">+</span> √(
+            <span class="code_variable">γ</span>·
+            <span class="code_variable">Δt</span>) · 
+            <span class="code_function">min</span>(
+            <span class="code_variable">w</span>,
+            <span class="code_variable">z</span>) · 
+            <span class="code_variable">η</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtable>
+        <mlabeledtr columnalign="left">
+          <mtd>
+            <mtext>(%o1) </mtext>
+          </mtd>
+          <mtd>
+            <mi>Δw</mi>
+            <mi>=</mi>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <mfrac>
+                  <mi>W</mi>
+                  <mi>N</mi>
+                </mfrac>
+                <mi>−</mi>
+                <mi>w</mi>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mo>⁢</mo>
+            <mi>Δt</mi>
+            <mo>⁢</mo>
+            <mi>τ</mi>
+            <mo>+</mo>
+            <mrow>
+              <mi>min</mi>
+              <mo>⁡</mo>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>w</mi>
+                  <mo>,</mo>
+                  <mi>z</mi>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+            <mo>⁢</mo>
+            <mi> η</mi>
+            <mo>⁢</mo>
+            <msqrt>
+              <mrow>
+                <mi>Δt</mi>
+                <mo>⁢</mo>
+                <mi>γ</mi>
+              </mrow>
+            </msqrt>
+          </mtd>
+        </mlabeledtr>
+      </mtable>
+    </math>
+    <!-- Text cell -->
+    <div class="comment">
+      <p>implemented by de.urszeidler.ascape.ysae_distubution.YardSaleModel
+        <br/>
+        <br/>YardSaleAgent ysa1 = this;
+        <br/>YardSaleAgent ysa2 = (YardSaleAgent) agent;
+        <br/>double beta = Math.sqrt(deltaT * gamma) * (randomIs() ? 1.0 : -1.0);
+        <br/>double dwealth_static = beta * Math.min(ysa1.wealth, ysa2.wealth);
+        <br/>double redist1 = tau * deltaT * (wealthPropotion - ysa1.getWealth());
+        <br/>double redist2 = tau * deltaT * (wealthPropotion - ysa2.getWealth());
+        <br/>
+        <br/>ysa2.wealth = ysa2.wealth + dwealth_static + redist2;
+        <br/>ysa1.wealth = ysa1.wealth - dwealth_static + redist1;
+        <br/>
+      </p>
+    </div>
+    <hr/>
+    <p>
+      <small> Created with 
+        <a href="https://wxMaxima-developers.github.io/wxmaxima/">wxMaxima</a>.</small>
+    </p>
+  </body>
+</html>
