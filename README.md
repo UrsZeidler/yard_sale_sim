@@ -68,7 +68,7 @@ To use and try the sim, use the eclipse installer and the [SimYardSale.setup](ht
 * download the [installer](https://wiki.eclipse.org/Eclipse_Installer), get the setup file and install.  
 Switch to advanced mode. On the first page (product selection), choose whatever product your eclipse should be based upon. On the second page, you can drag your SimYardSale.setup file from the system explorer onto the “eclipse.org” top node. Double click it, so that it is shown in the three lists below.
 
-
+A detailed description is [here](YardSaleSim/README.md)
 
 ### other refs and license
 
