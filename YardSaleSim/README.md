@@ -15,16 +15,34 @@ Switch to advanced mode. On the first page (product selection), choose whatever 
 ![start-state](doc/image/install-1.png "Start state")
 
 add the setup file  
-![start-state](doc/image/install-2.png "Start state")
+![add setup file](doc/image/install-2.png "add setup file")
 
 select the setup  
-![start-state](doc/image/install-3.png "Start state")
+![select the setup](doc/image/install-3.png "select the setup")
 
 finish the installation  
-![start-state](doc/image/install-4.png "Start state")
+![finish the installation](doc/image/install-4.png "finish the installation")
 
 After installing the eclipse the installer will clone the repository and setup the workspace and you are ready.
 
-## executing
+## executing the simulation
+
+For each model there is a java starter you can use to execute the specific model.  
+
+![start-config](doc/image/start-configuration.png "Start config")
+
+These simply calls the ascape swing application and provides the model to run. For more see the ascape documentation.
+
+## develping
+
+All the basic behavior are collected in the abstract classes, so you only need to extend from them.  
+The model collects the basic data for the algorithm and the Agent instance. While the agent implements the algorithm.
+
+Model:  
+* protected abstract AbstractYardSaleAgent createAgent();
+
+Agent:  
+* public void play(Agent agent);
+
 
 ## others
