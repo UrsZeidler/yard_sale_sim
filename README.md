@@ -63,7 +63,7 @@ This is the implementation of the proposed model in [2] with redistribution func
 
 ### installation
 
-To use and try the sim, use the eclipse installer and the YardSaleSim/etc/ide/SimYardSale.setup Oohmp setup, which will install and configure a eclipse installation, and checkout the code and import it.
+To use and try the sim, use the eclipse installer and the [SimYardSale.setup](https://raw.githubusercontent.com/UrsZeidler/yard_sale_sim/master/YardSaleSim/etc/ide/SimYardSale.setup) Oohmp setup, which will install and configure a eclipse installation, and checkout the code and import it.
 
 * download the [installer](https://wiki.eclipse.org/Eclipse_Installer), get the setup file and install.  
 Switch to advanced mode. On the first page (product selection), choose whatever product your eclipse should be based upon. On the second page, you can drag your SimYardSale.setup file from the system explorer onto the “eclipse.org” top node. Double click it, so that it is shown in the three lists below.
