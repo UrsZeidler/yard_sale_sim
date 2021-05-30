@@ -57,8 +57,8 @@
       xsi:type="git:GitCloneTask"
       id="git.clone.yard_sale_sim"
       location="${installation.location/yard_sale_sim}"
-      remoteURI="ssh://git@urszeidler.de:22222/home/git/repos/yard_sale_sim.git"
-      pushURI="ssh://git@urszeidler.de:22222/home/git/repos/yard_sale_sim.git">
+      remoteURI="https://github.com/UrsZeidler/yard_sale_sim.git"
+      pushURI="https://github.com/UrsZeidler/yard_sale_sim.git">
     <description>${scope.project.label}</description>
   </setupTask>
   <setupTask
