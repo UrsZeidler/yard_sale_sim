@@ -75,6 +75,8 @@ A detailed description is [here](YardSaleSim/README.md)
 other yard sale model projects:
 
 http://www.physics.umd.edu/hep/drew/math_general/yard_sale.html
+https://www.compadre.org/osp/items/detail.cfm?ID=13337
+https://www.wealthinequality.info/
 
 ## main references
 
