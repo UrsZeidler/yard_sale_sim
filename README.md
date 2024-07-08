@@ -34,6 +34,7 @@ All model collect some basic statistic about the economics of the system.
 * number of poor agents 
 * number of super rich agents 
 * maximum, minimum and average wealth
+* the Gini coefficient
 
 An agent is counted as rich if it wealth is greater than richfactor * startWealth  and as poor when the wealth is lower than poorfactor * startWealth . The default value are 1.000, ten times the average,and 10 ten times less than average.
 
